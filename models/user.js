@@ -7,13 +7,13 @@ const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const userSchema = new Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, 'Name is required'],
+      unique: true,
     },
     password: {
       type: String,
-      minlength: 6,
       required: [true, 'Password is required'],
     },
     email: {
@@ -22,11 +22,12 @@ const userSchema = new Schema(
       match: emailRegexp,
       unique: true,
     },
-    subscription: {
-      type: String,
-      enum: ['starter', 'pro', 'business'],
-      default: 'starter',
-    },
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'post',
+      },
+    ],
     token: {
       type: String,
       default: null,
@@ -38,14 +39,14 @@ const userSchema = new Schema(
 userSchema.post('save', handleSaveErrors);
 
 const registerSchema = Joi.object({
-  name: Joi.string().required(),
+  username: Joi.string().required(),
   email: Joi.string().pattern(emailRegexp).required(),
-  password: Joi.string().min(6).required(),
+  password: Joi.string().required(),
 });
 
 const loginSchema = Joi.object({
   email: Joi.string().pattern(emailRegexp).required(),
-  password: Joi.string().min(6).required(),
+  password: Joi.string().required(),
 });
 
 const schemas = {

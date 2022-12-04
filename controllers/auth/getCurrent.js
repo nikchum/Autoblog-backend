@@ -1,9 +1,11 @@
 const getCurrent = async (req, res) => {
-  const { name, email } = req.user;
+  const { username, email, posts, token } = req.user;
 
   res.json({
     email,
-    name,
+    username,
+    posts,
+    token,
   });
 };
 
