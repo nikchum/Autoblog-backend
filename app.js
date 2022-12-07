@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
 
 const authRouter = require('./routes/api/auth');
 const postsRouter = require('./routes/api/posts');
@@ -15,7 +16,9 @@ const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
 app.use(logger(formatsLogger));
 app.use(cors());
+app.use(fileUpload());
 app.use(express.json());
+app.use(express.static('uploads'));
 
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postsRouter);
