@@ -3,7 +3,6 @@ const { User } = require('../../models/user');
 const path = require('path');
 
 const add = async (req, res) => {
-  console.log(req.body);
   const { title, text } = req.body;
   const { _id, username } = req.user;
 
@@ -24,6 +23,7 @@ const add = async (req, res) => {
     });
 
     res.status(201).json({ newPostWithImage, message: 'Post created successfully' });
+    return;
   }
 
   const newPostWithoutImage = await Post.create({

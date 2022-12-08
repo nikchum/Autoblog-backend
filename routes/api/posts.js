@@ -12,12 +12,15 @@ router.post('/', auth, validateBody(schemas.addSchema), ctrlWrapper(ctrl.add));
 
 router.get('/', ctrlWrapper(ctrl.getAll));
 
+router.get('/comments/:id', isValidId, ctrlWrapper(ctrl.getPostComments));
+
 router.get('/user', auth, ctrlWrapper(ctrl.getUserPosts));
 
 router.get('/:id', isValidId, ctrlWrapper(ctrl.getById));
 
 router.delete('/:id', auth, isValidId, ctrlWrapper(ctrl.removeById));
 
+router.put('/:id', auth, isValidId, ctrlWrapper(ctrl.updateById));
 // router.put(
 //   '/:contactId',
 //   auth,

@@ -5,8 +5,9 @@ const fileUpload = require('express-fileupload');
 
 const authRouter = require('./routes/api/auth');
 const postsRouter = require('./routes/api/posts');
+const commentsRouter = require('./routes/api/comments');
 
-const contactsRouter = require('./routes/api/contacts');
+// const contactsRouter = require('./routes/api/contacts');
 
 require('dotenv').config();
 
@@ -22,8 +23,9 @@ app.use(express.static('uploads'));
 
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postsRouter);
+app.use('/api/comments', commentsRouter);
 
-app.use('/api/contacts', contactsRouter);
+// app.use('/api/contacts', contactsRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
