@@ -1,5 +1,6 @@
-const { Schema, model } = require('mongoose');
 const Joi = require('joi');
+const { Schema, model } = require('mongoose');
+
 const { handleSaveErrors } = require('../helpers');
 
 // eslint-disable-next-line no-useless-escape

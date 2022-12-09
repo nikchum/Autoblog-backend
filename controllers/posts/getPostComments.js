@@ -1,6 +1,6 @@
-const createError = require('../../helpers');
 const { Post } = require('../../models/post');
 const { Comment } = require('../../models/comment');
+const createError = require('../../helpers');
 
 const getPostComments = async (req, res) => {
   const post = await Post.findById(req.params.id);
@@ -11,7 +11,6 @@ const getPostComments = async (req, res) => {
 
   const list = await Promise.all(post.comments.map(comment => Comment.findById(comment)));
 
-  console.log(list);
   res.json(list);
 };
 

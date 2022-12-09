@@ -1,6 +1,7 @@
+const path = require('path');
+
 const { Post } = require('../../models/post');
 const { User } = require('../../models/user');
-const path = require('path');
 
 const add = async (req, res) => {
   const { title, text } = req.body;

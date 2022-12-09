@@ -1,6 +1,6 @@
-const createError = require('../../helpers');
 const { Post } = require('../../models/post');
 const { User } = require('../../models/user');
+const createError = require('../../helpers');
 
 const removeById = async (req, res) => {
   const { _id: userId } = req.user;

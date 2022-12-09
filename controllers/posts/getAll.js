@@ -1,5 +1,5 @@
-const createError = require('../../helpers');
 const { Post } = require('../../models/post');
+const createError = require('../../helpers');
 
 const getAll = async (req, res) => {
   const posts = await Post.find({}, '-updatedAt').sort('-createdAt');
