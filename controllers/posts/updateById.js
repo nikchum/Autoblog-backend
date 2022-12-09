@@ -3,7 +3,8 @@ const { Post } = require('../../models/post');
 const { createError } = require('../../helpers');
 
 const updateById = async (req, res) => {
-  const { title, text, id } = req.body;
+  const { id } = req.params;
+  const { title, text } = req.body;
 
   const post = await Post.findById(id);
 
