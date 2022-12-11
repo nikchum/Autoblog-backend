@@ -4,7 +4,7 @@
 * :link: [Ссылка на frontend репозиторий](https://github.com/nikchum/Autoblog-frontend)
 
 ___
-### **Фреймворки и библитеки :new_moon_with_face: :**
+### **Фреймворки и библиотеки :new_moon_with_face: :**
 - NodeJS
 - express
 - mongoose
