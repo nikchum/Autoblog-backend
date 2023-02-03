@@ -9,8 +9,8 @@ ___
 - express
 - mongoose
 - bcryptjs
-- cors
 - dotenv
+- cors
 - express-fileupload
 - joi
 - jsonwebtoken
